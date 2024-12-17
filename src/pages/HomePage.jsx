@@ -56,10 +56,10 @@ export const HomePage = () => {
           <img src="./home/planning.png" className="my-10" />
         </div>
         {/* Tabs */}
-        <div className="flex flex-col items-center py-32">
+        <div className="flex flex-col items-center">
           <div>
             {/* Tab buttons*/}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-6 mt-16">
               {tabButtonsData.map(({ text, style }, index) => (
                 <button
                   key={index}
@@ -76,7 +76,47 @@ export const HomePage = () => {
             </div>
             <div className="h-[1px] bg-gradient-to-r from-transparent via-black to-transparent mt-8"></div>
           </div>
-          {/* Paylaşımlar */}
+        </div>
+
+        {/* Paylaşımlar*/}
+        <div className="flex items-start justify-between mt-6 px-16">
+          {/* Filter*/}
+          <div className="flex flex-col gap-2 bg-[#CECECE]/20 p-6 border border-dashed border-[#cecece] rounded-md">
+            <p className="text-[16px] leading-[19px]">Filtreleme</p>
+            <div className="flex flex-col items-start gap-4 hover:underline text-primary">
+              <button className="text-[14px] leading-[17px]">
+                &gt; Saç Ekimi
+              </button>
+              <button className="text-[14px] leading-[17px]">
+                &gt; Meme Estetiği
+              </button>
+              <button className="text-[14px] leading-[17px]">
+                &gt; Liposuction
+              </button>
+              <button className="text-[14px] leading-[17px]">
+                &gt; Blefaroplasti
+              </button>
+              <button className="text-[14px] leading-[17px]">
+                &gt; Burun Estetiği
+              </button>
+              <button className="text-[14px] leading-[17px]">
+                &gt; Karın Germe
+              </button>
+              <button className="text-[14px] leading-[17px]">
+                &gt; Yağ Enjeksiyonu
+              </button>
+              <button className="text-[14px] leading-[17px]">&gt; Botox</button>
+              <button className="text-[14px] leading-[17px]">
+                &gt; Liposuction
+              </button>
+            </div>
+          </div>
+          <div>
+            <div className="bg-[url(./home/old-woman.png)] h-[560px] w-[672px] overflow-hidden bg-cover bg-center rounded-2xl"></div>
+          </div>
+          <button className="">
+            <img src="./home/teklif-al.png" />
+          </button>
         </div>
       </div>
     </div>
