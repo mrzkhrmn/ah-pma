@@ -10,7 +10,7 @@ export const Header = () => {
           </Link>
           <img src="./ah-logo.png" />
         </div>
-        <nav className="flex items-center gap-4 font-semibold text-sm">
+        <nav className="flex items-center gap-4 font-semibold">
           <Link className="text-primary uppercase">Hastenelerimiz</Link>
           <Link className="text-primary uppercase">Bölümlerimiz</Link>
           <Link className="text-primary uppercase">Doktorlarımız</Link>

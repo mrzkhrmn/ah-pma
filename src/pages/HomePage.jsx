@@ -1,37 +1,62 @@
 import { useState } from "react";
-
-const tabButtonsData = [
-  {
-    text: "Paylaşımlar",
-    style:
-      "w-[140px] text-[16px] leading-[19px] border border-primary py-2.5 px-4 rounded-lg transisition duration-200",
-  },
-  {
-    text: "Hakkımızda",
-    style:
-      "w-[140px] text-[16px] leading-[19px] border border-primary py-2.5 px-4 rounded-lg transisition duration-200",
-  },
-  {
-    text: "Hizmetler",
-    style:
-      "w-[140px] text-[16px] leading-[19px] border border-primary py-2.5 px-4 rounded-lg transisition duration-200",
-  },
-  {
-    text: "Doktorlar",
-    style:
-      "w-[140px] text-[16px] leading-[19px] border border-primary py-2.5 px-4 rounded-lg transisition duration-200",
-  },
-  {
-    text: "İletişim",
-    style:
-      "w-[140px] text-[16px] leading-[19px] border border-primary py-2.5 px-4 rounded-lg transisition duration-200",
-  },
-];
+import { Shares } from "../components/home/tabs/Shares";
+import { About } from "../components/home/about/About";
+import { Services } from "../components/home/services/Services";
+import { Doctors } from "../components/home/Doctors/Doctors";
 
 export const HomePage = () => {
   const [activeTabButton, setActiveTabButton] = useState("Paylaşımlar");
+  const [selectedDoctor, setSelectedDoctor] = useState(null);
 
-  console.log(activeTabButton);
+  const tabButtonsData = [
+    {
+      text: "Paylaşımlar",
+      style:
+        "w-[140px] text-[16px] leading-[19px] border border-primary py-2.5 px-4 rounded-lg transisition duration-200",
+      onClick: () => setActiveTabButton("Paylaşımlar"),
+    },
+    {
+      text: "Hakkımızda",
+      style:
+        "w-[140px] text-[16px] leading-[19px] border border-primary py-2.5 px-4 rounded-lg transisition duration-200",
+      onClick: () => setActiveTabButton("Hakkımızda"),
+    },
+    {
+      text: "Hizmetler",
+      style:
+        "w-[140px] text-[16px] leading-[19px] border border-primary py-2.5 px-4 rounded-lg transisition duration-200",
+      onClick: () => setActiveTabButton("Hizmetler"),
+    },
+    {
+      text: "Doktorlar",
+      style:
+        "w-[140px] text-[16px] leading-[19px] border border-primary py-2.5 px-4 rounded-lg transisition duration-200",
+      onClick: () => {
+        setActiveTabButton("Doktorlar");
+        setSelectedDoctor(null);
+      },
+    },
+  ];
+
+  const renderTabs = (activeTab) => {
+    switch (activeTab) {
+      case "Paylaşımlar":
+        return <Shares />;
+      case "Hakkımızda":
+        return <About />;
+      case "Hizmetler":
+        return <Services />;
+      case "Doktorlar":
+        return (
+          <Doctors
+            selectedDoctor={selectedDoctor}
+            setSelectedDoctor={setSelectedDoctor}
+          />
+        );
+      default:
+        break;
+    }
+  };
 
   return (
     <div className="w-full ">
@@ -56,19 +81,17 @@ export const HomePage = () => {
           <img src="./home/planning.png" className="my-10" />
         </div>
         {/* Tabs */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center py-20 ">
           <div>
             {/* Tab buttons*/}
             <div className="flex items-center gap-6 mt-16">
-              {tabButtonsData.map(({ text, style }, index) => (
+              {tabButtonsData.map(({ text, style, onClick }, index) => (
                 <button
                   key={index}
                   className={`${style} ${
                     activeTabButton === text && "bg-primary text-white"
                   }`}
-                  onClick={() => {
-                    activeTabButton !== text && setActiveTabButton(text);
-                  }}
+                  onClick={onClick}
                 >
                   {text}
                 </button>
@@ -76,47 +99,8 @@ export const HomePage = () => {
             </div>
             <div className="h-[1px] bg-gradient-to-r from-transparent via-black to-transparent mt-8"></div>
           </div>
-        </div>
-
-        {/* Paylaşımlar*/}
-        <div className="flex items-start justify-between mt-6 px-16">
-          {/* Filter*/}
-          <div className="flex flex-col gap-2 bg-[#CECECE]/20 p-6 border border-dashed border-[#cecece] rounded-md">
-            <p className="text-[16px] leading-[19px]">Filtreleme</p>
-            <div className="flex flex-col items-start gap-4 hover:underline text-primary">
-              <button className="text-[14px] leading-[17px]">
-                &gt; Saç Ekimi
-              </button>
-              <button className="text-[14px] leading-[17px]">
-                &gt; Meme Estetiği
-              </button>
-              <button className="text-[14px] leading-[17px]">
-                &gt; Liposuction
-              </button>
-              <button className="text-[14px] leading-[17px]">
-                &gt; Blefaroplasti
-              </button>
-              <button className="text-[14px] leading-[17px]">
-                &gt; Burun Estetiği
-              </button>
-              <button className="text-[14px] leading-[17px]">
-                &gt; Karın Germe
-              </button>
-              <button className="text-[14px] leading-[17px]">
-                &gt; Yağ Enjeksiyonu
-              </button>
-              <button className="text-[14px] leading-[17px]">&gt; Botox</button>
-              <button className="text-[14px] leading-[17px]">
-                &gt; Liposuction
-              </button>
-            </div>
-          </div>
-          <div>
-            <div className="bg-[url(./home/old-woman.png)] h-[560px] w-[672px] overflow-hidden bg-cover bg-center rounded-2xl"></div>
-          </div>
-          <button className="">
-            <img src="./home/teklif-al.png" />
-          </button>
+          {/* Seçilen tab'e göre render et*/}
+          {renderTabs(activeTabButton)}
         </div>
       </div>
     </div>
