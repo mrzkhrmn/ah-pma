@@ -1,4 +1,4 @@
-import { GetOfferButton } from "../../../components/GetOfferButton.jsx";
+import { GetOfferButton } from "../../../GetOfferButton.jsx";
 
 export const About = () => {
   return (

@@ -1,12 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 import { HomePage } from "./pages";
 import "./App.css";
+import { GetOfferProvider } from "./context/GetOfferProvider";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-    </Routes>
+    <GetOfferProvider>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </GetOfferProvider>
   );
 }
 

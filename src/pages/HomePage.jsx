@@ -1,12 +1,16 @@
 import { useState } from "react";
-import { Shares } from "../components/home/tabs/Shares";
-import { About } from "../components/home/about/About";
-import { Services } from "../components/home/services/Services";
-import { Doctors } from "../components/home/Doctors/Doctors";
+import { Shares } from "../components/home/tabs/shares/Shares";
+import { About } from "../components/home/tabs/about/About";
+import { Services } from "../components/home/tabs/services/Services";
+import { Doctors } from "../components/home/tabs/doctors/Doctors";
+import { useGetOffer } from "../context/GetOfferProvider";
+import { GetOfferModal } from "../components/home/get-offer/GetOfferModal";
 
 export const HomePage = () => {
   const [activeTabButton, setActiveTabButton] = useState("Paylaşımlar");
   const [selectedDoctor, setSelectedDoctor] = useState(null);
+
+  const { getOffer, setGetOffer } = useGetOffer();
 
   const tabButtonsData = [
     {
@@ -59,12 +63,11 @@ export const HomePage = () => {
   };
 
   return (
-    <div className="w-full ">
-      <div className="max-w-[1400px] mx-auto 0">
-        <img src="./home/banner.png" className="w-full " />
-
+    <>
+      <div className=" max-w-[1400px] mx-auto flex flex-col justify-center">
+        <img src="./home/banner.png" className="" />
         {/* Ön Kayıt */}
-        <div className="px-10 mt-10">
+        <div className="px-10 mt-10 flex flex-col">
           <h2 className="text-[20px] leading-[23px] text-primary uppercase">
             AMERİKAN HASTANESİ / ONLİNE HİZMETLER
           </h2>
@@ -77,11 +80,13 @@ export const HomePage = () => {
             uygulamamız üzerinden gerçekleştirebileceksiniz.
           </p>
         </div>
-        <div>
-          <img src="./home/planning.png" className="my-10" />
-        </div>
+        <img
+          src="./home/planning.png"
+          className="my-10 object-contain object-center"
+        />
+
         {/* Tabs */}
-        <div className="flex flex-col items-center py-20 ">
+        <div className="flex flex-col items-center">
           <div>
             {/* Tab buttons*/}
             <div className="flex items-center gap-6 mt-16">
@@ -103,6 +108,7 @@ export const HomePage = () => {
           {renderTabs(activeTabButton)}
         </div>
       </div>
-    </div>
+      <GetOfferModal openModal={getOffer} setOpenModal={setGetOffer} />
+    </>
   );
 };

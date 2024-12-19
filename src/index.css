@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.get-offer-modal > div > div {
+  max-height: 110vh;
+  overflow: visible;
+}

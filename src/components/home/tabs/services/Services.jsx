@@ -1,4 +1,4 @@
-import { GetOfferButton } from "../../GetOfferButton";
+import { GetOfferButton } from "../../../GetOfferButton";
 import { ServicesCard } from "./ServicesCard";
 
 export const Services = () => {

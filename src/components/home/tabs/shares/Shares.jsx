@@ -1,5 +1,5 @@
 import { SharesCard } from "./SharesCard";
-import { GetOfferButton } from "../../GetOfferButton";
+import { GetOfferButton } from "../../../GetOfferButton";
 
 export const Shares = () => {
   return (

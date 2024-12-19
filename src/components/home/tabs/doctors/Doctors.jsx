@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { GetOfferButton } from "../../GetOfferButton";
+import { GetOfferButton } from "../../../GetOfferButton";
 import { DoctorCard } from "./DoctorCard";
 
 const doctorsData = [
