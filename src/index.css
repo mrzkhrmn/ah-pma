@@ -2,7 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overflow-x: hidden;
+}
+
 .get-offer-modal > div > div {
-  max-height: 110vh;
-  overflow: visible;
+  max-height: 100vh;
+
+  overflow-y: hidden;
+}
+
+/* width */
+/* hide scrollbar but allow scrolling */
+.scoll {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+}
+.scroll::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+@media screen and (max-width: 1440px) {
+  .get-offer-modal > div > div {
+    max-height: 80vh;
+
+    overflow-y: hidden;
+  }
 }

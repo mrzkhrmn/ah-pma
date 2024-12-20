@@ -1,11 +1,11 @@
 export const SharesCard = ({ title, content }) => {
   return (
     <div
-      className={`bg-[url(./home/old-woman.png)] h-[560px] w-[670px] overflow-hidden bg-cover bg-center rounded-xl shadow-[rgba(0,0,10,0.3)_1px_6px_12px_1px] border border-primary/20`}
+      className={`bg-[url(./home/old-woman.png)]  h-[560px] lg:w-[670px] md:w-[550px] w-[350px] overflow-hidden bg-cover bg-center rounded-xl shadow-[rgba(0,0,10,0.3)_1px_6px_12px_1px] border border-primary/20`}
     >
       <div className="h-full flex items-end">
-        <div className="bg-white  flex flex-col justify-center gap-7 pt-4 pb-8">
-          <div className="flex items-center justify-between px-8">
+        <div className="bg-white  flex flex-col justify-center lg:gap-7 gap-3 pt-4 pb-8">
+          <div className="flex lg:flex-row flex-col lg:items-center items-start lg:gap-0 gap-4 justify-between px-8">
             <h1 className="text-[20px] leading-[24px] ">{title}</h1>
             <div className="flex items-center gap-2">
               <button>

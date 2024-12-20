@@ -38,9 +38,9 @@ const doctorsData = [
 
 export const Doctors = ({ selectedDoctor, setSelectedDoctor }) => {
   return (
-    <div className="w-full relative">
+    <div className="w-full relative max-w-[800px]">
       {selectedDoctor === null ? (
-        <div className=" max-w-[800px] mx-auto flex  items-center gap-4 flex-wrap mt-6">
+        <div className=" max-w-[800px] flex gap-4 flex-wrap  lg:justify-start justify-center">
           {doctorsData.map((doctor, index) => (
             <DoctorCard
               key={index}
@@ -50,9 +50,9 @@ export const Doctors = ({ selectedDoctor, setSelectedDoctor }) => {
           ))}
         </div>
       ) : (
-        <div className="max-w-[800px] mx-auto mt-6 flex items-start gap-8">
+        <div className=" mx-auto mt-6 flex lg:flex-row flex-col lg:items-start items-center gap-8">
           <DoctorCard doctor={selectedDoctor} setSelectedDoctor={() => ""} />
-          <div className="flex flex-col gap-8 pr-14">
+          <div className="flex flex-col gap-8 lg:pr-14 pr-0 lg:items-start items-center">
             <p className="font-semibold text-[20px] leading-[24px]">
               {" "}
               Amerikan Hastanesi bir asrı geride bırakırken, tecrübelerini en
@@ -71,9 +71,6 @@ export const Doctors = ({ selectedDoctor, setSelectedDoctor }) => {
           </div>
         </div>
       )}
-      <div className="absolute top-6 right-[42px]">
-        <GetOfferButton />
-      </div>
     </div>
   );
 };

@@ -1,10 +1,13 @@
 import { useState } from "react";
 
-export const GetOfferCard = ({ offer }) => {
+export const GetOfferCard = ({ offer, onClick }) => {
   const [active, setActive] = useState(false);
   return (
     <div
-      onClick={() => setActive(!active)}
+      onClick={() => {
+        onClick();
+        setActive(!active);
+      }}
       className="flex flex-col items-center justify-center gap-3"
     >
       <div

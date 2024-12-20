@@ -1,33 +1,43 @@
-import { GetOfferButton } from "../../../GetOfferButton.jsx";
+import { useState, useRef } from "react";
+import { useMouseDrag } from "../../../../hooks/useMouseDrag";
 
 export const About = () => {
+  const {
+    handleMouseDown,
+    handleMouseMove,
+    handleMouseUp,
+    handleMouseLeave,
+    ourRef,
+  } = useMouseDrag();
+
   return (
-    <div className="w-full">
-      <div className="flex items-start mt-6 ml-[60px]">
-        <div className=" max-w-[800px] mx-auto relative">
-          <div className="flex  w-full relative">
-            <div className="flex">
-              <img src="./home/hospital.png" alt="hospitalImage" />
-              <div className="flex flex-col justify-between pt-4 px-6">
-                <p className="font-semibold text-[20px] leading-[24px]">
-                  Amerikan Hastanesi bir asrı geride bırakırken, tecrübelerini
-                  en güncel teknolojik ve bilimsel yaklaşımlarla birleştirerek,
-                  sağlık alanındaki beklentilere yanıt vermeye devam ediyor.
-                </p>
-                <p className="text-[14px] leading-[17px]">
-                  Vehbi Koç Vakfı çatısı altında yer alan Amerikan Hastanesi,
-                  100 yıllık bilgi birikimi ve tecrübesiyle en güncel
-                  teknolojileri bir araya getirerek, kalite odaklı sağlık
-                  hizmetleri sunuyor. Hastalarımızla şeffaf iletişim kuran,
-                  güvenli ve kaliteli hasta bakım ve tedavisi sağlayan,
-                  sistemlerini sorgulayan ve geliştiren hastanemiz, sağlık
-                  sektöründeki lider pozisyonunu uluslararası kalite
-                  sertifikalarıyla destekliyor.
-                </p>
-              </div>
+    <div className=" lg:max-w-[800px]  flex flex-col  justify-center items-center">
+      <div className="flex items-start">
+        <div>
+          <div className="flex lg:flex-row flex-col lg:items-start items-center   w-full">
+            <img
+              src="./home/hospital.png"
+              alt="hospitalImage"
+              className="object-contain object-center lg:w-auto w-[80%]"
+            />
+            <div className="flex flex-col justify-between pt-4 lg:px-6 px-0 lg:gap-0 gap-4">
+              <p className="font-semibold text-[20px] leading-[24px]">
+                Amerikan Hastanesi bir asrı geride bırakırken, tecrübelerini en
+                güncel teknolojik ve bilimsel yaklaşımlarla birleştirerek,
+                sağlık alanındaki beklentilere yanıt vermeye devam ediyor.
+              </p>
+              <p className="text-[14px] leading-[17px]">
+                Vehbi Koç Vakfı çatısı altında yer alan Amerikan Hastanesi, 100
+                yıllık bilgi birikimi ve tecrübesiyle en güncel teknolojileri
+                bir araya getirerek, kalite odaklı sağlık hizmetleri sunuyor.
+                Hastalarımızla şeffaf iletişim kuran, güvenli ve kaliteli hasta
+                bakım ve tedavisi sağlayan, sistemlerini sorgulayan ve
+                geliştiren hastanemiz, sağlık sektöründeki lider pozisyonunu
+                uluslararası kalite sertifikalarıyla destekliyor.
+              </p>
             </div>
           </div>
-          <div className="text-[14px] leading-[17px] mt-6 pr-[47px]">
+          <div className="text-[14px] leading-[17px] mt-6 md:pr-[47px] pr-0">
             <p>
               Bu doğrultuda hastalarımıza uluslararası standartlarda ve kalitede
               tıbbi bakım sunabilmek amacıyla “Sürekli Kalite Geliştirme
@@ -49,7 +59,7 @@ export const About = () => {
             algoritmalarıyla 21. yüzyılın getirdiği sağlık alanındaki
             beklentilere yanıt vermeye devam ediyor. 
           </p>
-          <div className="mt-6 flex justify-between items-start  pr-10 gap-[76px]">
+          <div className="mt-6 flex lg:flex-row flex-col justify-between items-start md:pr-10 pr-0 lg:gap-[76px] gap-4">
             <p className="text-[20px] leading-[24px] font-semibold">
               Amerikan Hastanesi’nin ülkemizin sağlık sektörünün gelişimindeki
               önemli rolünün farkında olan ekibimiz, alanındaki tüm yenilik ve
@@ -58,16 +68,22 @@ export const About = () => {
             </p>
             <img src="./home/personel.png" alt="personelImg" />
           </div>
-          <div className="absolute top-0 -right-[228px]">
-            <GetOfferButton />
-          </div>
         </div>
       </div>
-      <div className="mt-10 w-full flex ml-[21%] overflow-auto gap-6">
-        <img src="./home/customer.png" alt="customerImg" />
-        <img src="./home/customer.png" alt="customerImg" />
-        <img src="./home/customer.png" alt="customerImg" />
-        <img src="./home/customer.png" alt="customerImg" />
+      <div
+        className="mt-10 xl:w-[1444px] xl:ml-[80%] ml-0 flex overflow-x-auto  gap-6 scroll"
+        ref={ourRef}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
+      >
+        <img src="./home/customer.png" alt="customerImg" draggable={false} />
+        <img src="./home/customer.png" alt="customerImg" draggable={false} />
+        <img src="./home/customer.png" alt="customerImg" draggable={false} />
+        <img src="./home/customer.png" alt="customerImg" draggable={false} />
+        <img src="./home/customer.png" alt="customerImg" draggable={false} />
+        <img src="./home/customer.png" alt="customerImg" draggable={false} />
       </div>
     </div>
   );
