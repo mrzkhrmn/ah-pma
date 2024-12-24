@@ -34,8 +34,6 @@ export const HomePage = () => {
     };
   }, []);
 
-  console.log(isVisible);
-
   const tabButtonsData = [
     {
       text: "Paylaşımlar",

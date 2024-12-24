@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { DashboardHeader } from "../components/UserDashboard/DashboardHeader";
 import { Sidebar } from "../components/UserDashboard/Sidebar";
-import { Profile } from "../components/UserDashboard/Profile";
-import { Branch } from "../components/UserDashboard/Branch";
-import { Doctors } from "../components/UserDashboard/Doctors";
+import { Profile } from "../components/UserDashboard/Profil/Profile";
+import { Branch } from "../components/UserDashboard/Profil/Branch";
+import { Doctors } from "../components/UserDashboard/Profil/Doctors/Doctors";
+import { DoctorServices } from "../components/UserDashboard/Profil/Doctors/DoctorServices";
+import { Representatives } from "../components/UserDashboard/Profil/Representatives/Representatives";
 
 export const UserDashboard = () => {
   const tabButtonsData = [
@@ -38,6 +40,10 @@ export const UserDashboard = () => {
         return <Branch />;
       case "Doktorlar":
         return <Doctors />;
+      case "Hizmetler":
+        return <DoctorServices />;
+      case "Temsilciler":
+        return <Representatives />;
 
       default:
         break;
